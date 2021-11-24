@@ -17,8 +17,7 @@ public class PersistenceAdapterConfiguration {
     @Autowired
     private CarRepository carRepository;
     @Bean
-    AllCarUseCase getAllCarUseCase()
-    {
+    AllCarUseCase getAllCarUseCase(){
         return new EcCarPersistenceAdapter(carRepository);
     }
 }

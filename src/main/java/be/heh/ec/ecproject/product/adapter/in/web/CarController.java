@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.util.Map;
 
-@Component
+
 @RestController
 @RequestMapping(path="/api", produces="application/json")
 @CrossOrigin(origins = "*")
