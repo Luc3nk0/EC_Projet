@@ -1,18 +1,25 @@
 package be.heh.ec.ecproject.product.adapter.in.web;
 
-import be.heh.ec.ecproject.product.domain.Car;
+import be.heh.ec.ecproject.product.domain.Car;import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.context.annotation.Profile;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
@@ -41,13 +48,14 @@ class CarControllerTest {
         //Stub
         Mockito.when(allCarUseCase.getCars()).thenReturn(cars);
 
-        /*given().
+        baseURI ="http://localhost/api";
+        given().
                 port(port).
         when().
-                get("").
+                get("/car").
         then().
                 statusCode(200).
-                body("carList.id",equalTo("1")).
-                body("carList.id",hasItems("1","2","3"));*/
+                body("cars[1].name",equalTo("Peugeot")).
+                body("cars.mark",hasItems("206","206","206"));
     }
 }
