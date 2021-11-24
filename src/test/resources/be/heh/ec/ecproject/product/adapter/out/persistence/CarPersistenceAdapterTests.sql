@@ -1,0 +1,1 @@
+insert into cars(id, surname, mark, price, description) values (1,'Panda','Fiat',2000,'Eclated car');

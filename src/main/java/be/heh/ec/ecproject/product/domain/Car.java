@@ -8,9 +8,9 @@ import java.time.LocalDate;
 public class Car {
 
     @Getter
-    private int id;
+    private Long id;
     @Getter
-    private String name;
+    private String surname;
     @Getter
     private String mark;
     @Getter
@@ -18,10 +18,10 @@ public class Car {
     @Getter
     private String description;
 
-    public Car(int id, String name, String mark, int price, String description) {
+    public Car(Long id, String surname, String mark, int price, String description) {
 
         this.id = id;
-        this.name = name;
+        this.surname = surname;
         this.mark = mark;
         if (price < 0) {
             this.price = price;

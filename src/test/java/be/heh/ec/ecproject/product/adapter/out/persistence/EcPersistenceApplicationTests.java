@@ -24,7 +24,7 @@ public class EcPersistenceApplicationTests {
     private EcCarPersistenceAdapter carPersistenceAdapter;
 
     @Test
-    @Sql({"../resources/createTable.sql","CarPersistenceAdapterTests.sql"})
+    @Sql({"createTable.sql","CarPersistenceAdapterTests.sql"})
     void getAllCars(){
         carPersistenceAdapter = new EcCarPersistenceAdapter(carRepository);
         Map<String, Object> map = new HashMap<>();
@@ -34,9 +34,9 @@ public class EcPersistenceApplicationTests {
 
         cars = (ArrayList<Car>)map.get("cars");
 
-        assertEquals("tata1","tata1");
-        assertEquals("tutu1","tutu1");
-        assertEquals(21,21);
+        System.out.println(cars);
+
+        assertEquals("Panda",cars.get(0).getSurname());
 
     }
 }

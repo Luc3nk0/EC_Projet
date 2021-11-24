@@ -23,7 +23,7 @@ public class EcCarPersistenceAdapter implements AllCarUseCase {
         Map<String,Object> mapCar = new HashMap<>();
 
         for (CarJpaEntity car: carJpaList) {
-            carList.add(new Car(car.getId(),car.getName(),car.getModel(),car.getPrice(),car.getDescription()));
+            carList.add(new Car(car.getId(),car.getSurname(),car.getMark(),car.getPrice(),car.getDescription()));
         }
         //---
         mapCar.put("cars",carList);
