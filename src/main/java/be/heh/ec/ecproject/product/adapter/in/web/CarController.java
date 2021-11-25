@@ -1,16 +1,18 @@
 package be.heh.ec.ecproject.product.adapter.in.web;
 
+import be.heh.ec.ecproject.product.adapter.out.persistence.CarJpaEntity;
 import be.heh.ec.ecproject.product.application.port.in.AllCarUseCase;
+import be.heh.ec.ecproject.product.domain.Car;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.context.annotation.Bean;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -26,4 +28,11 @@ public class CarController {
     {
         return allCarUseCase.getCars();
     }
+
+    @RequestMapping("/car/{carId}")
+    public Map<String, Object> getCarById(@PathVariable int carId){
+        return allCarUseCase.getCarById(carId);
+
+    }
+
 }
