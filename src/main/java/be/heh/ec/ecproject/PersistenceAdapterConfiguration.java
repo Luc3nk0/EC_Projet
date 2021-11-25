@@ -2,7 +2,7 @@ package be.heh.ec.ecproject;
 
 import be.heh.ec.ecproject.product.adapter.out.persistence.CarRepository;
 import be.heh.ec.ecproject.product.adapter.out.persistence.EcCarPersistenceAdapter;
-import be.heh.ec.ecproject.product.application.port.in.AllCarUseCase;
+import be.heh.ec.ecproject.product.application.port.in.ManageCarUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ public class PersistenceAdapterConfiguration {
     @Autowired
     private CarRepository carRepository;
     @Bean
-    AllCarUseCase getAllCarUseCase(){
+    ManageCarUseCase getAllCarUseCase(){
         return new EcCarPersistenceAdapter(carRepository);
     }
 }

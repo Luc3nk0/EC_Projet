@@ -1,15 +1,8 @@
 package be.heh.ec.ecproject.product.adapter.in.web;
 
-import be.heh.ec.ecproject.product.application.port.in.AllCarUseCase;
+import be.heh.ec.ecproject.product.application.port.in.ManageCarUseCase;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.context.annotation.Bean;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -19,11 +12,25 @@ import java.util.Map;
 @CrossOrigin(origins = "*")
 @RequiredArgsConstructor
 public class CarController {
-    private final AllCarUseCase allCarUseCase;
+    private final ManageCarUseCase manageCarUseCase;
 
     @GetMapping("/car")
     public Map<String, Object> getCars()
     {
-        return allCarUseCase.getCars();
+        return manageCarUseCase.getCars();
     }
+
+    @RequestMapping("/car/{carId}")
+    public Map<String, Object> getCarById(@PathVariable int carId){
+        return manageCarUseCase.getCarById(carId);
+    }
+    @RequestMapping("/car/name/{carName}")
+    public Map<String, Object> getCarBySurname(@PathVariable String carName){
+        return manageCarUseCase.getCarBySurname(carName);
+    }
+    @RequestMapping("/car/mark/{carMark}")
+    public Map<String, Object> getCarByMark(@PathVariable String carMark){
+        return manageCarUseCase.getCarByMark(carMark);
+    }
+
 }
