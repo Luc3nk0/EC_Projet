@@ -18,7 +18,6 @@ public class EcCarPersistenceAdapter implements AllCarUseCase {
     @Override
     public Map<String, Object> getCars() {
         List<CarJpaEntity> carJpaList = carRepository.findAll();
-        System.out.println(carRepository.findAll());
 
         List<Car> carList = new ArrayList<Car>();
         Map<String,Object> mapCar = new HashMap<>();
@@ -29,46 +28,19 @@ public class EcCarPersistenceAdapter implements AllCarUseCase {
         mapCar.put("cars",carList);
         return mapCar;
     }
+
     @Override
-    public Map<String, Object> getCarById(int index){
+    public Map<String, Object> getCarById(int index)
+    {
         List<CarJpaEntity> carJpaList = carRepository.findAll();
-        System.out.println(carRepository.findAll());
-
         List<Car> carList = new ArrayList<Car>();
-        Map<String,Object> mapCar = new HashMap<>();
         for (CarJpaEntity c: carJpaList) {
-            carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription()));
+            if (index == c.getId())
+                carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription()));
         }
-
+        Map<String,Object> mapCar = new HashMap<>();
         mapCar.put("cars",carList);
         return mapCar;
     }
-    @Override
-    public Map<String, Object> getCarBySurname(String carName){
-        List<CarJpaEntity> carJpaList = carRepository.findAll();
-        System.out.println(carRepository.findAll());
 
-        List<Car> carList = new ArrayList<Car>();
-        Map<String,Object> mapCar = new HashMap<>();
-        for (CarJpaEntity c: carJpaList) {
-            carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription()));
-        }
-
-        mapCar.put("cars",carList);
-        return mapCar;
-    }
-    @Override
-    public Map<String, Object> getCarByMark(String carMark){
-        List<CarJpaEntity> carJpaList = carRepository.findAll();
-        System.out.println(carRepository.findAll());
-
-        List<Car> carList = new ArrayList<Car>();
-        Map<String,Object> mapCar = new HashMap<>();
-        for (CarJpaEntity c: carJpaList) {
-            carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription()));
-        }
-
-        mapCar.put("cars",carList);
-        return mapCar;
-    }
 }

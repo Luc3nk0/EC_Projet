@@ -117,6 +117,7 @@ class CarControllerTest {
         Car car1 = new Car(0,"206","Peugeot",1500,"");
         Car car2 = new Car(1,"Panda","Fiat",1500,"");
         Car car3 = new Car(2,"306","Toyota",1500,"");
+        //Car car4 = new Car(2,"306","Toyota",1500,"");
         List<Car> carsList = new ArrayList<>();
         carsList.add(car1);
         carsList.add(car2);
