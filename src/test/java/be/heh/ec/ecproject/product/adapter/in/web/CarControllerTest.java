@@ -26,6 +26,7 @@ import static org.hamcrest.Matchers.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
 
+@ActiveProfiles("dev")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
 class CarControllerTest {
@@ -37,9 +38,9 @@ class CarControllerTest {
 
     @Test
     void getCars() {
-        Car car1 = new Car(0L,"Peugeot","206",1500,"");
-        Car car2 = new Car(1L,"Peugeot","206",1500,"");
-        Car car3 = new Car(2L,"Peugeot","206",1500,"");
+        Car car1 = new Car(0,"Peugeot","206",1500,"");
+        Car car2 = new Car(1,"Peugeot","206",1500,"");
+        Car car3 = new Car(2,"Peugeot","206",1500,"");
         List<Car> carsList = new ArrayList<>();
         carsList.add(car1);
         carsList.add(car2);

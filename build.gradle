@@ -20,23 +20,23 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.postgresql:postgresql'
-    runtimeOnly 'org.postgresql:postgresql'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.5.6'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.5.6'
+    implementation 'org.postgresql:postgresql:42.3.1'
+    runtimeOnly 'org.postgresql:postgresql:42.3.1'
+    compileOnly 'org.projectlombok:lombok:1.18.22'
+    annotationProcessor 'org.projectlombok:lombok:1.18.22'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.6'
     testImplementation 'io.rest-assured:rest-assured:4.4.0'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 
-    testImplementation 'org.testcontainers:testcontainers'
-    testImplementation 'org.testcontainers:junit-jupiter'
-    testImplementation 'org.testcontainers:postgresql'
+    testImplementation 'org.testcontainers:testcontainers:1.16.2'
+    testImplementation 'org.testcontainers:junit-jupiter:1.16.2'
+    testImplementation 'org.testcontainers:postgresql:1.16.2'
 
-    implementation 'org.flywaydb:flyway-core'
+    implementation 'org.flywaydb:flyway-core:8.0.2'
 }
 
 test {
