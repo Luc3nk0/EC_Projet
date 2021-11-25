@@ -32,7 +32,14 @@ public class CarController {
     @RequestMapping("/car/{carId}")
     public Map<String, Object> getCarById(@PathVariable int carId){
         return allCarUseCase.getCarById(carId);
-
+    }
+    @RequestMapping("/car/name/{carName}")
+    public Map<String, Object> getCarBySurname(@PathVariable String carName){
+        return allCarUseCase.getCarBySurname(carName);
+    }
+    @RequestMapping("/car/mark/{carMark}")
+    public Map<String, Object> getCarByMark(@PathVariable String carMark){
+        return allCarUseCase.getCarByMark(carMark);
     }
 
 }
