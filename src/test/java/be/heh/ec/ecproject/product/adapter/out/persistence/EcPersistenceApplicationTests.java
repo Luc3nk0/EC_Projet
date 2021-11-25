@@ -31,9 +31,7 @@ public class EcPersistenceApplicationTests {
         carPersistenceAdapter = new EcCarPersistenceAdapter(carRepository);
         Map<String, Object> map = new HashMap<>();
         ArrayList<Car> cars;
-
         map = carPersistenceAdapter.getCars();
-
         cars = (ArrayList<Car>)map.get("cars");
         assertEquals("Panda",cars.get(0).getSurname());
     }
@@ -43,17 +41,37 @@ public class EcPersistenceApplicationTests {
     void getProductById()
     {
         int id = 1;
-
         carPersistenceAdapter = new EcCarPersistenceAdapter(carRepository);
         Map<String, Object> map = new HashMap<>();
         ArrayList<Car> cars;
-
         map = carPersistenceAdapter.getCarById(id);
-
         cars = (ArrayList<Car>)map.get("cars");
-
         assertEquals("Panda",cars.get(0).getSurname());
+    }
 
+    @Test
+    @Sql({"createTable.sql","CarPersistenceAdapterTests.sql"})
+    void getProductByName()
+    {
+        String name = "anda";
+        carPersistenceAdapter = new EcCarPersistenceAdapter(carRepository);
+        Map<String, Object> map = new HashMap<>();
+        ArrayList<Car> cars;
+        map = carPersistenceAdapter.getCarBySurname(name);
+        cars = (ArrayList<Car>)map.get("cars");
+        assertEquals("Panda",cars.get(0).getSurname());
+    }
 
+    @Test
+    @Sql({"createTable.sql","CarPersistenceAdapterTests.sql"})
+    void getProductByMark()
+    {
+        String mark = "fi";
+        carPersistenceAdapter = new EcCarPersistenceAdapter(carRepository);
+        Map<String, Object> map = new HashMap<>();
+        ArrayList<Car> cars;
+        map = carPersistenceAdapter.getCarByMark(mark);
+        cars = (ArrayList<Car>)map.get("cars");
+        assertEquals("Fiat",cars.get(0).getMark());
     }
 }
