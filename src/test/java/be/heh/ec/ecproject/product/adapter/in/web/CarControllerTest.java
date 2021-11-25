@@ -1,18 +1,13 @@
 package be.heh.ec.ecproject.product.adapter.in.web;
 
-import be.heh.ec.ecproject.product.application.port.in.AllCarUseCase;
+import be.heh.ec.ecproject.product.application.port.in.ManageCarUseCase;
 import be.heh.ec.ecproject.product.domain.Car;
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.context.annotation.Profile;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -20,8 +15,6 @@ import java.util.*;
 
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
-import static org.hamcrest.Matchers.*;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
@@ -34,7 +27,7 @@ class CarControllerTest {
     private int port;
 
     @MockBean
-    private AllCarUseCase allCarUseCase;
+    private ManageCarUseCase manageCarUseCase;
 
     @Test
     void getCars() {
@@ -49,7 +42,7 @@ class CarControllerTest {
         cars.put("cars",carsList);
 
         //Stub
-        Mockito.when(allCarUseCase.getCars()).thenReturn(cars);
+        Mockito.when(manageCarUseCase.getCars()).thenReturn(cars);
 
         baseURI ="http://localhost/api";
         given().
@@ -74,7 +67,7 @@ class CarControllerTest {
         cars.put("cars",carsList);
 
         //Stub
-        Mockito.when(allCarUseCase.getCarById(0)).thenReturn(cars);
+        Mockito.when(manageCarUseCase.getCarById(0)).thenReturn(cars);
 
         baseURI ="http://localhost/api";
         given().
@@ -99,7 +92,7 @@ class CarControllerTest {
         cars.put("cars",carsList);
 
         //Stub
-        Mockito.when(allCarUseCase.getCarBySurname("Panda")).thenReturn(cars);
+        Mockito.when(manageCarUseCase.getCarBySurname("Panda")).thenReturn(cars);
 
         baseURI ="http://localhost/api";
         given().
@@ -126,7 +119,7 @@ class CarControllerTest {
         cars.put("cars",carsList);
 
         //Stub
-        Mockito.when(allCarUseCase.getCarByMark("Fiat")).thenReturn(cars);
+        Mockito.when(manageCarUseCase.getCarByMark("Fiat")).thenReturn(cars);
         System.out.println(cars);
         baseURI ="http://localhost/api";
         given().
