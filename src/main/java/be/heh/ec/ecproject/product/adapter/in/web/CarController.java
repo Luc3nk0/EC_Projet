@@ -2,6 +2,7 @@ package be.heh.ec.ecproject.product.adapter.in.web;
 
 import be.heh.ec.ecproject.product.adapter.out.persistence.CarJpaEntity;
 import be.heh.ec.ecproject.product.application.port.in.AllCarUseCase;
+import be.heh.ec.ecproject.product.domain.Car;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
