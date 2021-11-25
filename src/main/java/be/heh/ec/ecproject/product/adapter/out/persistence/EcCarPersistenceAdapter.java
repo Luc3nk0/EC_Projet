@@ -19,14 +19,15 @@ public class EcCarPersistenceAdapter implements AllCarUseCase {
     public Map<String, Object> getCars() {
         List<CarJpaEntity> carJpaList = carRepository.findAll();
         System.out.println(carRepository.findAll());
-        //mapper
+
         List<Car> carList = new ArrayList<Car>();
         Map<String,Object> mapCar = new HashMap<>();
         for (CarJpaEntity c: carJpaList) {
             carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription()));
         }
-        //---
+
         mapCar.put("cars",carList);
         return mapCar;
     }
+
 }
