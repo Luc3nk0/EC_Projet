@@ -11,7 +11,7 @@ public class CarJpaEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     @Column(name = "id")
-    private Long id;
+    private int id;
 
     @Column(name = "surname")
     private String surname;
