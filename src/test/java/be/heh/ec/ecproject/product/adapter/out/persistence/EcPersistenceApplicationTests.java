@@ -35,10 +35,25 @@ public class EcPersistenceApplicationTests {
         map = carPersistenceAdapter.getCars();
 
         cars = (ArrayList<Car>)map.get("cars");
+        assertEquals("Panda",cars.get(0).getSurname());
+    }
 
-        System.out.println(cars);
+    @Test
+    @Sql({"createTable.sql","CarPersistenceAdapterTests.sql"})
+    void getProductById()
+    {
+        int id = 1;
+
+        carPersistenceAdapter = new EcCarPersistenceAdapter(carRepository);
+        Map<String, Object> map = new HashMap<>();
+        ArrayList<Car> cars;
+
+        map = carPersistenceAdapter.getCarById(id);
+
+        cars = (ArrayList<Car>)map.get("cars");
 
         assertEquals("Panda",cars.get(0).getSurname());
+
 
     }
 }
