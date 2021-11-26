@@ -1,4 +1,4 @@
-package be.heh.ec.ecproject.order.adapter.out;
+package be.heh.ec.ecproject.order.adapter.out.web;
 
 import be.heh.ec.ecproject.order.application.port.out.ManageOrderUseCase;
 import lombok.RequiredArgsConstructor;

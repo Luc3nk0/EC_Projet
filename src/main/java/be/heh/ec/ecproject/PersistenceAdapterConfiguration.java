@@ -1,5 +1,6 @@
 package be.heh.ec.ecproject;
 
+import be.heh.ec.ecproject.order.adapter.out.persistence.OrderRepository;
 import be.heh.ec.ecproject.product.adapter.out.persistence.CarRepository;
 import be.heh.ec.ecproject.product.adapter.out.persistence.EcCarPersistenceAdapter;
 import be.heh.ec.ecproject.product.application.port.in.ManageCarUseCase;
@@ -17,7 +18,7 @@ public class PersistenceAdapterConfiguration {
     @Autowired
     private CarRepository carRepository;
     @Bean
-    ManageCarUseCase getAllCarUseCase(){
+    ManageCarUseCase getManageCarUseCase(){
         return new EcCarPersistenceAdapter(carRepository);
     }
 }
