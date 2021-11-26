@@ -15,5 +15,5 @@ public class Order {
     @Getter
     private final int customerId;
     @Getter
-    private final List<Car> carListOrder = new ArrayList<>();
+    private final ArrayList<Car> carListOrder = new ArrayList<>();
 }
