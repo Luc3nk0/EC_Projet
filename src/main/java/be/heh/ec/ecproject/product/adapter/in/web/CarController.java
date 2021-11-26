@@ -32,4 +32,5 @@ public class CarController {
     public Map<String, Object> getCarByMark(@PathVariable String carMark){
         return manageCarUseCase.getCarByMark(carMark);
     }
+
 }
