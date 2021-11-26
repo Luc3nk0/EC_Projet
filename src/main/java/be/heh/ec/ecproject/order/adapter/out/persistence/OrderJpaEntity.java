@@ -1,10 +1,14 @@
 package be.heh.ec.ecproject.order.adapter.out.persistence;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import be.heh.ec.ecproject.product.domain.Car;
+import lombok.Data;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+
+@Entity
+@Table(name = "orders")
+@Data
 public class OrderJpaEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -12,14 +16,8 @@ public class OrderJpaEntity {
     private int id;
 
     @Column(name = "customerId")
-    private String customerId;
+    private int customerId;
 
-    @Column(name = "mark")
-    private String mark;
-
-    @Column(name = "price")
-    private int price;
-
-    @Column(name = "description")
-    private String description;
+    @Column(name = "carListOrder")
+    private String carListOrder;
 }

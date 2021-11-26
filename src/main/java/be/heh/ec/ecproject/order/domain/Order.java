@@ -3,6 +3,7 @@ package be.heh.ec.ecproject.order.domain;
 import be.heh.ec.ecproject.product.domain.Car;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,9 +12,12 @@ import java.util.List;
 public class Order {
 
     @Getter
-    private final int orderId;
+    @Setter
+    private final int Id;
     @Getter
+    @Setter
     private final int customerId;
     @Getter
-    private final ArrayList<Car> carListOrder = new ArrayList<>();
+    @Setter
+    private final String carListOrder;
 }
