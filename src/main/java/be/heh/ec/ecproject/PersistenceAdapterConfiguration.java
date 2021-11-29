@@ -2,7 +2,7 @@ package be.heh.ec.ecproject;
 
 import be.heh.ec.ecproject.order.adapter.out.persistence.OrderRepository;
 import be.heh.ec.ecproject.order.service.OrderService;
-import be.heh.ec.ecproject.order.application.port.out.ManageOrderUseCase;
+import be.heh.ec.ecproject.order.application.port.in.ManageOrderUseCase;
 import be.heh.ec.ecproject.product.adapter.out.persistence.CarRepository;
 import be.heh.ec.ecproject.product.adapter.out.persistence.EcCarPersistenceAdapter;
 import be.heh.ec.ecproject.product.application.port.in.ManageCarUseCase;

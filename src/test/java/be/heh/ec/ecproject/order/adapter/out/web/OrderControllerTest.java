@@ -1,6 +1,6 @@
 package be.heh.ec.ecproject.order.adapter.out.web;
 
-import be.heh.ec.ecproject.order.application.port.out.ManageOrderUseCase;
+import be.heh.ec.ecproject.order.application.port.in.ManageOrderUseCase;
 import be.heh.ec.ecproject.product.application.port.in.ManageCarUseCase;
 import be.heh.ec.ecproject.product.domain.Car;
 import org.junit.jupiter.api.Order;
@@ -12,10 +12,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import java.util.*;
 import static io.restassured.RestAssured.*;
-import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasItems;
 
 @ActiveProfiles("dev")
