@@ -6,6 +6,7 @@ import be.heh.ec.ecproject.order.application.port.out.ManageOrderUseCase;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 
 @RequiredArgsConstructor
 public class OrderService implements ManageOrderUseCase {
@@ -16,5 +17,11 @@ public class OrderService implements ManageOrderUseCase {
     public String setOrder(String order) {
         List<OrderJpaEntity> orderJpaList = orderRepository.findAll();
         return "Command received";
+    }
+
+    @Override
+    public Map<String, Object> getOrderById(String order) {
+        System.out.println("ok");
+        return null;
     }
 }
