@@ -25,8 +25,4 @@ public class OrderService implements ManageOrderUseCase {
         return null;
     }
 
-    @Override
-    public Map<String, Object> getOrderById(String orderId) {
-        return null;
-    }
 }
