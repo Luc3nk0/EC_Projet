@@ -1,18 +1,21 @@
 package be.heh.ec.ecproject;
 
+import be.heh.ec.ecproject.order.adapter.out.persistence.OrderPersistenceAdapter;
 import be.heh.ec.ecproject.order.adapter.out.persistence.OrderRepository;
+import be.heh.ec.ecproject.order.application.port.out.ManageOrderAdapterUseCase;
 import be.heh.ec.ecproject.order.service.OrderService;
 import be.heh.ec.ecproject.order.application.port.in.ManageOrderUseCase;
 import be.heh.ec.ecproject.product.adapter.out.persistence.CarRepository;
 import be.heh.ec.ecproject.product.adapter.out.persistence.EcCarPersistenceAdapter;
 import be.heh.ec.ecproject.product.application.port.in.ManageCarUseCase;
+import org.apache.catalina.Manager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@Profile("prod")
+@Profile("dev")
 @Configuration
 @EnableJpaRepositories
 public class PersistenceAdapterConfiguration {
@@ -21,12 +24,18 @@ public class PersistenceAdapterConfiguration {
     private CarRepository carRepository;
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private ManageOrderAdapterUseCase orderPersistenceAdapter;
+
     @Bean
     ManageCarUseCase getManageCarUseCase(){
         return new EcCarPersistenceAdapter(carRepository);
     }
     @Bean
-    ManageOrderUseCase getManageOrderUseCase(){
-        return new OrderService(orderRepository);
+    ManageOrderUseCase getManageOderUseCase(){return new OrderService(orderPersistenceAdapter);}
+    @Bean
+    ManageOrderAdapterUseCase getManageOrderAdapterUseCase()
+    {
+        return new OrderPersistenceAdapter(orderRepository);
     }
 }

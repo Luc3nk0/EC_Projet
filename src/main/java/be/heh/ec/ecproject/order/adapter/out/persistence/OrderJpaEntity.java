@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.UUID;
 
 @Entity
 @Table(name = "orders")
@@ -20,4 +21,7 @@ public class OrderJpaEntity {
 
     @Column(name = "carlistorder")
     private String carListOrder;
+
+    @Column(name="uuid")
+    private UUID uuid;
 }

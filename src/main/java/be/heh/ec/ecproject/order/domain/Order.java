@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RequiredArgsConstructor
 public class Order {
@@ -19,4 +20,7 @@ public class Order {
     @Getter
     @Setter
     private final String carListOrder;
+    @Getter
+    @Setter
+    private UUID uuid;
 }
