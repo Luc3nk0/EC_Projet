@@ -14,6 +14,7 @@ import java.util.Map;
 public class CarController {
     private final ManageCarUseCase manageCarUseCase;
 
+
     @GetMapping("/car")
     public Map<String, Object> getCars()
     {
@@ -32,5 +33,4 @@ public class CarController {
     public Map<String, Object> getCarByMark(@PathVariable String carMark){
         return manageCarUseCase.getCarByMark(carMark);
     }
-
 }

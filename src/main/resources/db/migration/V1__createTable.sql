@@ -5,3 +5,8 @@ create table IF NOT EXISTS cars (
                       price INT,
                       description VARCHAR(100)
 );
+create table IF NOT EXISTS orders (
+                      id INT,
+                      customerid INT,
+                      carlistorder VARCHAR(50)
+);

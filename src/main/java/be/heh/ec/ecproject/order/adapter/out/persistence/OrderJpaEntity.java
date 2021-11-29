@@ -15,9 +15,9 @@ public class OrderJpaEntity {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "customerId")
+    @Column(name = "customerid")
     private int customerId;
 
-    @Column(name = "carListOrder")
+    @Column(name = "carlistorder")
     private String carListOrder;
 }
