@@ -10,15 +10,14 @@ import be.heh.ec.ecproject.product.adapter.out.persistence.EcCarPersistenceAdapt
 import be.heh.ec.ecproject.product.application.port.in.ManageCarUseCase;
 import org.apache.catalina.Manager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.stereotype.Component;
 
 @Profile("dev")
 @Configuration
 @EnableJpaRepositories
+@ComponentScan
 public class PersistenceAdapterConfiguration {
 
     @Autowired

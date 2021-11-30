@@ -23,4 +23,15 @@ public class Order {
     @Getter
     @Setter
     private UUID uuid;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + Id +
+                ", id du client='" + customerId + '\'' +
+                ", voiture(s)='" + carListOrder + '\'' +
+                ", uuid=" + uuid +
+                '}';
+    }
+
 }

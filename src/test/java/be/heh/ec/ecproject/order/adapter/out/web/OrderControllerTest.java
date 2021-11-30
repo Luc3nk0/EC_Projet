@@ -46,7 +46,7 @@ class OrderControllerTest {
         orders.put("orders",orderList);
 
         //Order order1 = new Order(2,6,carsList);
-
+/*
         Mockito.when(manageOrderUseCase.setOrder("")).thenReturn(String.valueOf(orders));
         baseURI ="http://localhost/api";
         given().
