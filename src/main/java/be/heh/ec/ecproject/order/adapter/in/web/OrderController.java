@@ -18,9 +18,9 @@ public class OrderController {
     public String postOrder(@RequestBody String order) {
         return manageOrderUseCase.setOrder(order);
     }
-
+/*
     @RequestMapping("/order/id/{orderId}")
     public Map<String, Object> getOrderById(@PathVariable String orderId){
         return manageOrderUseCase.getOrderById(orderId);
-    }
+    }*/
 }

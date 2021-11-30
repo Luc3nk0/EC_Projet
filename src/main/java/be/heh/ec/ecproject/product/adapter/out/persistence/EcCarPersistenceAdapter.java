@@ -3,16 +3,22 @@ package be.heh.ec.ecproject.product.adapter.out.persistence;
 import be.heh.ec.ecproject.product.application.port.in.ManageCarUseCase;
 import be.heh.ec.ecproject.product.domain.Car;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RequiredArgsConstructor
+@Component
 public class EcCarPersistenceAdapter implements ManageCarUseCase {
 
     private final CarRepository carRepository;
+    @Autowired
+    public EcCarPersistenceAdapter(CarRepository carRepository){
+        this.carRepository= carRepository;
+    }
 
     @Override
     public Map<String, Object> getCars() {
