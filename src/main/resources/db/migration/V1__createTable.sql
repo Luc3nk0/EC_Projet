@@ -7,7 +7,16 @@ create table IF NOT EXISTS cars (
 );
 create table IF NOT EXISTS orders (
                       id INT,
-                      customerid INT,
-                      carlistorder VARCHAR(50),
+                      customerId INT,
                       UUID uuid
+);
+create table IF NOT EXISTS items_car(
+                      orderId INT,
+                      carId INT,
+);
+create table IF NOT EXISTS customer(
+                      id INT,
+                      firstName VARCHAR(50),
+                      lastName VARCHAR(50),
+                      email VARCHAR(50)
 );

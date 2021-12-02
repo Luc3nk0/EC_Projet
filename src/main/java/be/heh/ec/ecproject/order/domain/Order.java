@@ -3,6 +3,7 @@ package be.heh.ec.ecproject.order.domain;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.hibernate.mapping.Array;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,8 +20,5 @@ public class Order {
     private final int customerId;
     @Getter
     @Setter
-    private final String carListOrder;
-    @Getter
-    @Setter
-    private UUID uuid;
+    private final UUID uuid;
 }

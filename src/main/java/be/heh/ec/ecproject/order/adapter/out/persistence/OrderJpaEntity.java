@@ -2,6 +2,7 @@ package be.heh.ec.ecproject.order.adapter.out.persistence;
 
 import be.heh.ec.ecproject.product.domain.Car;
 import lombok.Data;
+import org.hibernate.mapping.Array;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -18,9 +19,6 @@ public class OrderJpaEntity {
 
     @Column(name = "customerid")
     private int customerId;
-
-    @Column(name = "carlistorder")
-    private String carListOrder;
 
     @Column(name="uuid")
     private UUID uuid;
