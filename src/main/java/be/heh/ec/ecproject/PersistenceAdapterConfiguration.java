@@ -9,6 +9,7 @@ import be.heh.ec.ecproject.product.adapter.out.persistence.CarRepository;
 import be.heh.ec.ecproject.product.adapter.out.persistence.EcCarPersistenceAdapter;
 import be.heh.ec.ecproject.product.application.port.in.ManageCarUseCase;
 import org.apache.catalina.Manager;
+import org.hibernate.sql.ordering.antlr.OrderByAliasResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,7 +36,7 @@ public class PersistenceAdapterConfiguration {
     }
     @Primary
     @Bean
-    ManageOrderUseCase getManageOderUseCase(){return new OrderService(orderPersistenceAdapter);}
+    ManageOrderUseCase getManageOrderUseCase(){return new OrderService(orderPersistenceAdapter);}
     @Primary
     @Bean
     ManageOrderAdapterUseCase getManageOrderAdapterUseCase()

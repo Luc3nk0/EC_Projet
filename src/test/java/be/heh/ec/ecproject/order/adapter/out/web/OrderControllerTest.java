@@ -17,7 +17,7 @@ import java.util.*;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.hasItems;
 
-@ActiveProfiles("prod")
+@ActiveProfiles("dev")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @RunWith(SpringRunner.class)
 class OrderControllerTest {
@@ -47,7 +47,7 @@ class OrderControllerTest {
 
         //Order order1 = new Order(2,6,carsList);
 
-        Mockito.when(manageOrderUseCase.setOrder("")).thenReturn(String.valueOf(orders));
+        Mockito.when(manageOrderUseCase.setOrder(orders)).thenReturn(orders);
         baseURI ="http://localhost/api";
         given().
                 port(port).

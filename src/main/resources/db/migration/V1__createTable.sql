@@ -8,5 +8,6 @@ create table IF NOT EXISTS cars (
 create table IF NOT EXISTS orders (
                       id INT,
                       customerid INT,
-                      carlistorder VARCHAR(50)
+                      carlistorder VARCHAR(50),
+                      UUID uuid
 );

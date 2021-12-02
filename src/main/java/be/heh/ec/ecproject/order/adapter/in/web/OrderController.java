@@ -15,7 +15,7 @@ public class OrderController {
     private final ManageOrderUseCase manageOrderUseCase;
 
     @PostMapping("/order")
-    public String postOrder(@RequestBody String order) {
+    public Map<String, Object> postOrder(@RequestBody Map<String, Object> order) {
         return manageOrderUseCase.setOrder(order);
     }
 /*
