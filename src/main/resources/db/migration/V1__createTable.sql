@@ -12,9 +12,9 @@ create table IF NOT EXISTS orders (
 );
 create table IF NOT EXISTS items_car(
                       orderId INT,
-                      carId INT,
+                      carId INT
 );
-create table IF NOT EXISTS customer(
+create table IF NOT EXISTS customers(
                       id INT,
                       firstName VARCHAR(50),
                       lastName VARCHAR(50),

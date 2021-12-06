@@ -1,0 +1,2 @@
+create sequence hibernate_sequence_customer;
+create sequence hibernate_sequence_order;

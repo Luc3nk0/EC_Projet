@@ -1,11 +1,9 @@
 package be.heh.ec.ecproject.customer.persistence;
 
+import be.heh.ec.ecproject.order.adapter.out.persistence.OrderJpaEntity;
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "customers")
@@ -13,6 +11,7 @@ import javax.persistence.Table;
 public class CustomerJpaEntity {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "hibernate_sequence_customer")
     @Column(name = "id")
     private int id;
 
@@ -24,4 +23,8 @@ public class CustomerJpaEntity {
 
     @Column(name = "email")
     private String email;
+
+    public void addOrder(OrderJpaEntity orderJpaEntity) {
+
+    }
 }

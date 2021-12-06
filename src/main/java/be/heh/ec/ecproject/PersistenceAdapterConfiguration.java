@@ -1,5 +1,6 @@
 package be.heh.ec.ecproject;
 
+import be.heh.ec.ecproject.customer.persistence.CustomerRepository;
 import be.heh.ec.ecproject.order.adapter.out.persistence.OrderPersistenceAdapter;
 import be.heh.ec.ecproject.order.adapter.out.persistence.OrderRepository;
 import be.heh.ec.ecproject.order.application.port.out.ManageOrderAdapterUseCase;
@@ -25,7 +26,7 @@ public class PersistenceAdapterConfiguration {
     @Autowired
     private CarRepository carRepository;
     @Autowired
-    private OrderRepository orderRepository;
+    private CustomerRepository customerRepository;
 
     @Autowired
     private ManageOrderAdapterUseCase orderPersistenceAdapter;
@@ -41,6 +42,6 @@ public class PersistenceAdapterConfiguration {
     @Bean
     ManageOrderAdapterUseCase getManageOrderAdapterUseCase()
     {
-        return new OrderPersistenceAdapter(orderRepository);
+        return new OrderPersistenceAdapter(customerRepository);
     }
 }
