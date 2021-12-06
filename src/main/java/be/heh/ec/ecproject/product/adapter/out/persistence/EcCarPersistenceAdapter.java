@@ -22,9 +22,9 @@ public class EcCarPersistenceAdapter implements ManageCarUseCase {
 
     @Override
     public Map<String, Object> getCars() {
+        Map<String,Object> mapCar = new HashMap<>();
         List<CarJpaEntity> carJpaList = carRepository.findAll();
         List<Car> carList = new ArrayList<Car>();
-        Map<String,Object> mapCar = new HashMap<>();
         for (CarJpaEntity c: carJpaList) {
             carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription()));
         }

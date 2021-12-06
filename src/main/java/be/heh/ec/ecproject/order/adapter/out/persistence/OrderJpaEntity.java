@@ -2,6 +2,7 @@ package be.heh.ec.ecproject.order.adapter.out.persistence;
 
 import be.heh.ec.ecproject.product.domain.Car;
 import lombok.Data;
+import lombok.Setter;
 import org.hibernate.mapping.Array;
 
 import javax.persistence.*;
