@@ -26,6 +26,7 @@ public class OrderService implements ManageOrderUseCase {
 
         System.out.println("Your UUID is: " + uuidAsString);
         order.put("UUID", uuid);
+        // test
         return manageOrderAdapterUseCase.insertOrder(new Order(1,2,uuid), new Customer(1,"a","b","c"));
     }
 
