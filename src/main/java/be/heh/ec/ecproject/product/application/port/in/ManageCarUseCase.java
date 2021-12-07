@@ -3,8 +3,8 @@ package be.heh.ec.ecproject.product.application.port.in;
 import java.util.Map;
 
 public interface ManageCarUseCase {
-    public Map<String, Object> getCars();
-    public Map<String, Object> getCarById(int index);
-    public Map<String, Object> getCarByMark(String mark);
-    public Map<String, Object> getCarBySurname(String surname);
+    Map<String, Object> getCars();
+    Map<String, Object> getCarById(int index);
+    Map<String, Object> getCarByMark(String mark);
+    Map<String, Object> getCarBySurname(String surname);
 }
