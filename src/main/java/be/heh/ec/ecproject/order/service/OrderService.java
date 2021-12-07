@@ -5,6 +5,7 @@ import be.heh.ec.ecproject.customer.domain.Customer;
 import be.heh.ec.ecproject.order.application.port.in.ManageOrderUseCase;
 import be.heh.ec.ecproject.order.application.port.out.ManageOrderAdapterUseCase;
 import be.heh.ec.ecproject.order.domain.Order;
+import be.heh.ec.ecproject.order.domain.Purchase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -18,14 +19,12 @@ public class OrderService implements ManageOrderUseCase {
     private final ManageOrderAdapterUseCase manageOrderAdapterUseCase ;
 
     @Override
-    public Map<String, Object> setOrder(Map<String, Object> order) {
+    public Map<String, Object> setPurchase(Purchase purchase) {
         UUID uuid = UUID.randomUUID();
-        String uuidAsString = uuid.toString();
-
-        System.out.println("Your UUID is: " + uuidAsString);
-        order.put("UUID", uuid);
+        Order order = new Order(0,0,uuid);
+        Customer customer = new Customer(0,purchase.getCustomerName(),purchase.getCustomerLastName(),purchase.getEmail());
         // test
-        return manageOrderAdapterUseCase.insertOrder(new Order(1,2,uuid), new Customer(1,"a","b","c"));
+        return manageOrderAdapterUseCase.insertOrder(order, customer, purchase.getCarlist());
     }
 
     @Override
@@ -34,3 +33,4 @@ public class OrderService implements ManageOrderUseCase {
     }
 
 }
+

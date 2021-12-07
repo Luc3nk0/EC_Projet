@@ -25,7 +25,7 @@ public class OrderPersistenceAdapter implements ManageOrderAdapterUseCase {
     private final CustomerRepository customerRepository;
 
     @Override
-    public Map<String, Object> insertOrder(Order order, Customer customer) {
+    public Map<String, Object> insertOrder(Order order, Customer customer, List carList) {
 
         CustomerJpaEntity customerJpaEntity = new CustomerJpaEntity();
         customerJpaEntity.setFirstName(customer.getFirstName());

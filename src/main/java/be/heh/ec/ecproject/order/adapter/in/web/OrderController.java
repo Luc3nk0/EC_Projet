@@ -1,6 +1,7 @@
 package be.heh.ec.ecproject.order.adapter.in.web;
 
 import be.heh.ec.ecproject.order.application.port.in.ManageOrderUseCase;
+import be.heh.ec.ecproject.order.domain.Purchase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +16,8 @@ public class OrderController {
     private final ManageOrderUseCase manageOrderUseCase;
 
     @PostMapping("/order")
-    public Map<String, Object> postOrder(@RequestBody Map<String, Object> order) {
-        return manageOrderUseCase.setOrder(order);
+    public Map<String, Object> postOrder(@RequestBody Purchase purchase) {
+        return manageOrderUseCase.setPurchase(purchase);
     }
 /*
     @RequestMapping("/order/id/{orderId}")
