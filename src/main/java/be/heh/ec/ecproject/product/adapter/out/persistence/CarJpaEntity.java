@@ -24,4 +24,7 @@ public class CarJpaEntity {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name="orderid")
+    private int orderid;
 }

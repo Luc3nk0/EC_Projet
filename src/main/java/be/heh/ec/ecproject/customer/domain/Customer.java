@@ -11,10 +11,10 @@ public class Customer {
     private final int id;
     @Getter
     @Setter
-    private final String firstName;
+    private final String firstname;
     @Getter
     @Setter
-    private final String lastName;
+    private final String lastname;
     @Getter
     @Setter
     private final String email;

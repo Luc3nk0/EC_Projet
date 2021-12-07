@@ -18,5 +18,7 @@ public class Car {
     private final int price;
     @Getter
     private final String description;
+    @Getter
+    private final int orderid;
 
 }

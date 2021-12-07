@@ -15,11 +15,11 @@ public class CustomerJpaEntity {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "firstName")
-    private String firstName;
+    @Column(name = "firstname")
+    private String firstname;
 
-    @Column(name = "lastName")
-    private String lastName;
+    @Column(name = "lastname")
+    private String lastname;
 
     @Column(name = "email")
     private String email;

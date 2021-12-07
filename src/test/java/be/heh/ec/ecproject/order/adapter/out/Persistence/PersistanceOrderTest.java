@@ -41,12 +41,12 @@ public class PersistanceOrderTest {
 
         CustomerJpaEntity customerJpaEntity = new CustomerJpaEntity();
 
-        String firstName = "Mehdi";
-        String lastName = "Fares";
+        String firstname = "Mehdi";
+        String lastname = "Fares";
         String email = "mehdifares@hotmail.com";
 
-        customerJpaEntity.setFirstName(firstName);
-        customerJpaEntity.setLastName(lastName);
+        customerJpaEntity.setFirstname(firstname);
+        customerJpaEntity.setLastname(lastname);
         customerJpaEntity.setEmail(email);
 
         customerRepository.save(customerJpaEntity);

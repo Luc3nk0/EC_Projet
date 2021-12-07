@@ -26,7 +26,7 @@ public class EcCarPersistenceAdapter implements ManageCarUseCase {
         List<CarJpaEntity> carJpaList = carRepository.findAll();
         List<Car> carList = new ArrayList<Car>();
         for (CarJpaEntity c: carJpaList) {
-            carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription()));
+            carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription(),c.getOrderid()));
         }
 
         mapCar.put("cars",carList);
@@ -40,7 +40,7 @@ public class EcCarPersistenceAdapter implements ManageCarUseCase {
         List<Car> carList = new ArrayList<Car>();
         for (CarJpaEntity c: carJpaList) {
             if (index == c.getId())
-                carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription()));
+                carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription(),c.getOrderid()));
         }
         Map<String,Object> mapCar = new HashMap<>();
         mapCar.put("cars",carList);
@@ -53,7 +53,7 @@ public class EcCarPersistenceAdapter implements ManageCarUseCase {
         List<Car> carList = new ArrayList<Car>();
         for (CarJpaEntity c: carJpaList) {
             if (c.getMark().toLowerCase().contains(mark.toLowerCase()))
-                carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription()));
+                carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription(),c.getOrderid()));
         }
         Map<String,Object> mapCar = new HashMap<>();
         mapCar.put("cars",carList);
@@ -66,7 +66,7 @@ public class EcCarPersistenceAdapter implements ManageCarUseCase {
         List<Car> carList = new ArrayList<Car>();
         for (CarJpaEntity c: carJpaList) {
             if (c.getSurname().toLowerCase().contains(surname.toLowerCase()))
-                carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription()));
+                carList.add(new Car(c.getId(),c.getSurname(),c.getMark(),c.getPrice(),c.getDescription(),c.getOrderid()));
         }
         Map<String,Object> mapCar = new HashMap<>();
         mapCar.put("cars",carList);
