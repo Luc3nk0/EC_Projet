@@ -27,6 +27,8 @@ public class PersistenceAdapterConfiguration {
     private CarRepository carRepository;
     @Autowired
     private CustomerRepository customerRepository;
+    @Autowired
+    private OrderRepository orderRepository;
 
     @Autowired
     private ManageOrderAdapterUseCase orderPersistenceAdapter;
@@ -42,6 +44,6 @@ public class PersistenceAdapterConfiguration {
     @Bean
     ManageOrderAdapterUseCase getManageOrderAdapterUseCase()
     {
-        return new OrderPersistenceAdapter(customerRepository);
+        return new OrderPersistenceAdapter(customerRepository, orderRepository, carRepository);
     }
 }

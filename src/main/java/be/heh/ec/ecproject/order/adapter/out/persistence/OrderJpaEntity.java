@@ -17,7 +17,7 @@ import java.util.UUID;
 @Data
 public class OrderJpaEntity {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.AUTO, generator = "hibernate_sequence_order")
     @Column(name = "id")
     private int id;
 

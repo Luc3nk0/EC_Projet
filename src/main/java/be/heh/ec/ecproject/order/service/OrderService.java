@@ -23,7 +23,6 @@ public class OrderService implements ManageOrderUseCase {
         UUID uuid = UUID.randomUUID();
         Order order = new Order(0,0,uuid);
         Customer customer = new Customer(0,purchase.getCustomerName(),purchase.getCustomerLastName(),purchase.getEmail());
-        // test
         return manageOrderAdapterUseCase.insertOrder(order, customer, purchase.getCarlist());
     }
 
