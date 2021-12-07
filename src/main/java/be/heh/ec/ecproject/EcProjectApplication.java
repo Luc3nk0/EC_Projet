@@ -18,7 +18,7 @@ public class EcProjectApplication {
     public static void main(String[] args) {
         SpringApplication.run(EcProjectApplication.class, args);
     }
-
+/*
     @Bean
     public CommandLineRunner demo(CustomerRepository repository){
             return (args) ->
@@ -33,5 +33,5 @@ public class EcProjectApplication {
         customerJpaEntity.addOrder(orderJpaEntity);
         repository.save(customerJpaEntity);
     };
-    }
+    }*/
 }
