@@ -7,11 +7,12 @@ import be.heh.ec.ecproject.order.application.port.out.ManageOrderAdapterUseCase;
 import be.heh.ec.ecproject.order.domain.Order;
 import be.heh.ec.ecproject.order.domain.Purchase;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
 import java.util.UUID;
-
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class OrderService implements ManageOrderUseCase {
@@ -23,6 +24,7 @@ public class OrderService implements ManageOrderUseCase {
         UUID uuid = UUID.randomUUID();
         Order order = new Order(0,0,uuid);
         Customer customer = new Customer(0,purchase.getCustomerName(),purchase.getCustomerLastName(),purchase.getEmail());
+        log.info("Service set");
         return manageOrderAdapterUseCase.insertOrder(order, customer, purchase.getCarlist());
     }
 

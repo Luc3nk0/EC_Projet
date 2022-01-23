@@ -13,6 +13,7 @@ import be.heh.ec.ecproject.product.domain.Car;
 import com.sun.tools.jconsole.JConsoleContext;
 import com.sun.xml.bind.v2.model.core.ID;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,6 +25,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.*;
 
+@Slf4j
 @Component
 @RequiredArgsConstructor
 public class OrderPersistenceAdapter implements ManageOrderAdapterUseCase {
@@ -40,24 +42,30 @@ public class OrderPersistenceAdapter implements ManageOrderAdapterUseCase {
         customerJpaEntity.setLastname(customer.getLastname());
         customerJpaEntity.setEmail(customer.getEmail());
 
-        CustomerJpaEntity customerCompleted = customerRepository.save(customerJpaEntity);
+        try {
+            CustomerJpaEntity customerCompleted = customerRepository.save(customerJpaEntity);
+            OrderJpaEntity orderJpaEntity = new OrderJpaEntity();
+            orderJpaEntity.setCustomerId(customerCompleted.getId());
+            orderJpaEntity.setUuid(order.getUuid());
 
-        OrderJpaEntity orderJpaEntity = new OrderJpaEntity();
-        orderJpaEntity.setCustomerId(customerCompleted.getId());
-        orderJpaEntity.setUuid(order.getUuid());
+            OrderJpaEntity orderCompleted = orderRepository.save(orderJpaEntity);
 
-        OrderJpaEntity orderCompleted = orderRepository.save(orderJpaEntity);
+            for (Object carId : carList) {
+                List<CarJpaEntity> carListJpaEntity = carRepository.findAll();
+                int carIdInt = (int) carId;
 
-        for (Object carId : carList) {
-            List<CarJpaEntity> carListJpaEntity = carRepository.findAll();
-            int carIdInt = (int) carId;
-
-            for (CarJpaEntity c: carListJpaEntity) {
-                if (c.getId() == carIdInt) {
-                    c.setOrderid(orderCompleted.getId());
-                    carRepository.save(c);
+                for (CarJpaEntity c: carListJpaEntity) {
+                    if (c.getId() == carIdInt) {
+                        c.setOrderid(orderCompleted.getId());
+                        carRepository.save(c);
+                    }
                 }
             }
+            log.info("Purchase success");
+        }
+        catch (Exception e)
+        {
+            log.error(e.getMessage());
         }
 
         Map<String, Object> map = new HashMap<>();

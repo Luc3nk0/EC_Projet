@@ -2,6 +2,7 @@ package be.heh.ec.ecproject;
 
 import be.heh.ec.ecproject.customer.persistence.CustomerRepository;
 import be.heh.ec.ecproject.order.adapter.out.persistence.OrderPersistenceAdapter;
+import be.heh.ec.ecproject.order.adapter.out.persistence.OrderRepository;
 import be.heh.ec.ecproject.order.application.port.in.ManageOrderUseCase;
 import be.heh.ec.ecproject.order.application.port.out.ManageOrderAdapterUseCase;
 import be.heh.ec.ecproject.order.service.OrderService;
