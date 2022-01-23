@@ -10,6 +10,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.*;
 
@@ -25,7 +26,6 @@ import static org.hamcrest.Matchers.hasItems;
 class CarControllerTest {
     @LocalServerPort
     private int port;
-
     @MockBean
     private ManageCarUseCase manageCarUseCase;
 
